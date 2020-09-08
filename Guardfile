@@ -60,9 +60,6 @@ guard :rspec, cmd: 'bin/rspec' do
   watch(rspec.spec_helper) { rspec.spec_dir }
   watch(rspec.spec_support) { rspec.spec_dir }
   watch(rspec.spec_files)
-  watch(%r{^app/models/(.+)\.rb$}) { |m| "spec/features/#{m[1]}s" }
-  watch(%r{^app/controllers/(.+)_(controller)\.rb$}) { |m| "spec/features/#{m[1]}" }
-  watch(rails.routes) { rspec.spec_dir.to_s }
 
   # Ruby files
   ruby = dsl.ruby
@@ -80,6 +77,10 @@ guard :rspec, cmd: 'bin/rspec' do
       rspec.spec.call("acceptance/#{m[1]}")
     ]
   end
+
+  watch(%r{^app/models/(.+)\.rb$}) { |m| "spec/features/#{m[1]}s" }
+  watch(%r{^app/controllers/(.+)_(controller)\.rb$}) { |m| "spec/features/#{m[1]}" }
+  watch(rails.routes) { rspec.spec_dir.to_s }
 
   # Rails config changes
   watch(rails.spec_helper)     { rspec.spec_dir }
