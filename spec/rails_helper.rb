@@ -68,4 +68,6 @@ RSpec.configure do |config|
     /bin\//,
     /lib\/rspec\/(core|expectations|matchers|mocks)/
   ]
+
+  config.include Warden::Test::Helpers
 end
