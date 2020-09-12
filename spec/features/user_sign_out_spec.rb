@@ -19,7 +19,8 @@ RSpec.feature 'Sign out user:' do
     click_link 'Sign out'
 
     expect(page).to have_content('Signed out successfully')
-    expect(page).not_to have_content(@user.email)
+    expect(page).to have_no_content(@user.email)
     expect(page).to have_no_content('Sign out')
+    expect(page).to have_content('Sign in')
   end
 end

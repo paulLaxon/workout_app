@@ -15,5 +15,6 @@ RSpec.feature 'Sign up user:' do
     click_button 'Sign up'
 
     expect(page).to have_content('You have signed up successfully')
+    expect(page).to have_content('Sign out')
   end
 end
