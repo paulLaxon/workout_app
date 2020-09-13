@@ -23,4 +23,14 @@ RSpec.feature 'Listing workouts:' do
     expect(page).to have_content(@e2.workout)
     expect(page).to have_content(@e2.workout_date)
   end
+
+  scenario 'if there are no user workouts' do
+    @user.exercises.delete_all
+
+    visit '/'
+
+    click_link 'My Lounge'
+
+    expect(page).to have_content('No workouts yet')
+  end
 end
