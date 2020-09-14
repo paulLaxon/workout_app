@@ -30,6 +30,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'd3-rails', '4.1.0'
 gem 'devise', '~> 4.7.2'
+gem 'jquery-rails'
 gem 'jquery-ui-rails', '5.0.5'
 gem 'railties', '~> 5.2.4.2'
 
