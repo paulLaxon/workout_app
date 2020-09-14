@@ -108,6 +108,8 @@ GEM
       cucumber-core (~> 8.0, >= 8.0.1)
       cucumber-cucumber-expressions (~> 10.3, >= 10.3.0)
       cucumber-messages (~> 13.0, >= 13.0.1)
+    d3-rails (4.1.0)
+      railties (>= 3.1)
     devise (4.7.2)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -322,6 +324,7 @@ DEPENDENCIES
   byebug
   capybara (>= 2.7.1)
   coffee-rails (~> 4.2)
+  d3-rails (= 4.1.0)
   devise (~> 4.7.2)
   guard (~> 2.16.2)
   guard-cucumber (~> 3.0.0)

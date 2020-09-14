@@ -9,7 +9,7 @@
           <th>Activity date</th>
         </tr>
       </thead>
-      <body>
+      <tbody>
         <% @exercises.each do |e| %>
           <tr>
             <td><%= e.duration_in_min %></td>
@@ -21,9 +21,8 @@
                     method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
         <% end %>
-      </body>
+      </tbody>
     </table>
-    <br>
     <br>
   <% else %>
     <div class="alert alert-danger message-font text-center" role="alert">
@@ -32,4 +31,6 @@
     <br>
   <% end %>
   <%= link_to 'New Workout', new_user_exercise_path(current_user), class: "btn btn-success link" %>
+  <br>
+  <%= content_tag :div, "", id: "chart", data: { workouts: @exercises } %>
 </div>
