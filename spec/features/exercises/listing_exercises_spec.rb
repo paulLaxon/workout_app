@@ -23,7 +23,6 @@ RSpec.feature 'Listing workouts:' do
     expect(page).to have_content(@e2.duration_in_min)
     expect(page).to have_content(@e2.workout)
     expect(page).to have_content(@e2.workout_date)
-
     expect(page).to_not have_content(@e3.duration_in_min)
     expect(page).to_not have_content(@e3.workout)
     expect(page).to_not have_content(@e3.workout_date)
