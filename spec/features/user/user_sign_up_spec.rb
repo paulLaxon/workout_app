@@ -8,6 +8,8 @@ RSpec.feature 'Sign up user:' do
 
     click_link 'Sign up'
 
+    fill_in 'First name', with: 'John'
+    fill_in 'Last name', with: 'Doe'
     fill_in 'Email', with: 'paul@example.com'
     fill_in 'Password', with: 'password'
     fill_in 'Password confirmation', with: 'password'
@@ -16,5 +18,9 @@ RSpec.feature 'Sign up user:' do
 
     expect(page).to have_content('You have signed up successfully')
     expect(page).to have_link('Sign out')
+
+    visit '/'
+
+    expect(page).to have_content('John Doe')
   end
 end

@@ -13,7 +13,6 @@ RSpec.feature 'Sign out user:' do
     click_link 'Sign out'
 
     expect(page).to have_content('Signed out successfully')
-    expect(page).to have_no_content(@user.email)
     expect(page).to have_no_link('Sign out')
     expect(page).to have_link('Sign in')
   end
