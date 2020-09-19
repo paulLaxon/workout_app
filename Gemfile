@@ -33,7 +33,7 @@ gem 'devise', '~> 4.7.2'
 gem 'jquery-rails'
 gem 'jquery-ui-rails', '5.0.5'
 gem 'railties', '~> 5.2.4.2'
-gem 'will_paginate-bootstrap', '~>1.0.0'
+gem 'will_paginate-bootstrap', '~> 1.0.1'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
