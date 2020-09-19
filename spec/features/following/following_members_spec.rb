@@ -18,13 +18,13 @@ RSpec.feature 'Following members:' do
     expect(page).to have_content(@john.full_name)
     # expect(page).to have_content(@sarah.full_name)
 
-    href = "/friends?friend_id=#{@john.id}"
+    href = "/friendships?friend_id=#{@john.id}"
     expect(page).not_to have_link('Follow', href: href)
 
-    link = "a[href='/friends?friend_id=#{@paul.id}']"
+    link = "a[href='/friendships?friend_id=#{@paul.id}']"
     find(link).click
 
-    href = "/friends?friend_id=#{@paul.id}"
+    href = "/friendships?friend_id=#{@paul.id}"
     expect(page).not_to have_link('Follow', href: href)
   end
 end
