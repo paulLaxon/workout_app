@@ -3,7 +3,9 @@
     <div class="text-center">
       <h1>Join the Athletes Den</h1>
       <h2>Build a workout and show it off to your friends</h2>
-      <%= link_to "Sign up", new_user_registration_path, class: 'btn btn-success btn-lg btn-block btn-huge' %>
+      <div class="sign-up-link">
+        <%= link_to "Sign Up Now", new_user_registration_path, class: 'btn btn-success btn-lg btn-block btn-huge' %>
+      </div>
     </div>
   </div>
 <% else %>

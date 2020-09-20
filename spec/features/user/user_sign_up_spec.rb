@@ -6,7 +6,7 @@ RSpec.feature 'Sign up user:' do
   scenario 'when a user signs up with valid credentials' do
     visit '/'
 
-    click_link 'Sign up'
+    click_link 'Sign Up Now'
 
     fill_in 'First name', with: 'John'
     fill_in 'Last name', with: 'Doe'
