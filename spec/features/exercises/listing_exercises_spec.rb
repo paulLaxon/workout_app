@@ -44,8 +44,6 @@ RSpec.feature 'Listing workouts:' do
   end
 
   scenario 'shows a list of user\'s friends' do
-    @john.exercises.delete_all
-
     visit '/'
 
     click_link 'My Lounge'

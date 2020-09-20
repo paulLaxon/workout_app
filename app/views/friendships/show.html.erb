@@ -1,0 +1,38 @@
+<div class="col-md-8">
+  <p id="notice"><%= notice %></p>
+  <% unless @exercises.empty? %>
+    <h1><%= @friend.full_name %>'s Workouts</h1>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Duration (min)</th>
+          <th>Workout details</th>
+          <th>Activity date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @exercises.each do |e| %>
+          <tr>
+            <td><%= e.duration_in_min %></td>
+            <td><%= truncate(e.workout, length: 100) %></td>
+            <td><%= e.workout_date %></td>
+            <td><%= link_to 'Show', [current_user, e] %></td>
+            <td><%= link_to 'Edit', [:edit, current_user, e] %></td>
+            <td><%= link_to 'Delete', [current_user, e],
+                    method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <br>
+
+  <% else %>
+    <div class="alert alert-danger message-font text-center" role="alert">
+      No workouts yet
+    </div>
+    <br>
+  <% end %>
+
+  <br>
+  <%= content_tag :div, "", id: "chart", data: { workouts: @exercises } %>
+</div>
