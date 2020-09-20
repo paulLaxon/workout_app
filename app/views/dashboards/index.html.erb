@@ -1,19 +1,35 @@
-<div class="jumbotron">
-  <h1>Workout Lounge</h1>
-  <p>Show off your workout</p>
-</div>
-
-<div class="row">
-  <div class="col-md-10">
-    <h2>Member List</h2>
-    <%= will_paginate @athletes, renderer: BootstrapPagination::Rails, class: 'pull-left paginate'%>
-  </div>
-</div>
-
-<div class="row">
-  <%= @athletes.each do |athlete| %>
-    <div class="col-md10 well member">
-      <%= athlete.full_name %>
+<% if !current_user %>
+  <div class="jumbotron">
+    <div class="text-center">
+      <h1>Join the Athletes Den</h1>
+      <h2>Build a workout and show it off to your friends</h2>
+      <%= link_to "Sign up", new_user_registration_path, class: 'btn btn-success btn-lg btn-block btn-huge' %>
     </div>
-  <% end %>
-</div>
+  </div>
+<% else %>
+  <div class="jumbotron">
+    <div class="text-center">
+      <h1>Workout Lounge</h1>
+      <p>Show off your workout</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-10">
+      <h2>Member List</h2>
+      <%= will_paginate @athletes, renderer: BootstrapPagination::Rails, class: 'pull-left paginate'%>
+    </div>
+  </div>
+
+  <div class="row">
+    <%= @athletes.each do |athlete| %>
+      <% if current_user != athlete %>
+        <div class="col-md10 well member">
+          <%= athlete.full_name %>
+          <%= link_to 'Follow', friendships_path(friend_id: athlete.id),
+              method: :post, class: 'btn btn-success pull-right' unless current_user&.follows_or_same?(athlete) %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>

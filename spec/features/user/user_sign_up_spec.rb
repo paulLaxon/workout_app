@@ -21,7 +21,7 @@ RSpec.feature 'Sign up user:' do
 
     visit '/'
 
-    expect(page).to have_content('John Doe')
+    expect(page).to_not have_content('John Doe')
   end
 
   scenario 'when a user signs up with invalid credentials' do
