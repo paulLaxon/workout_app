@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :friendships
   has_many :friends, through: :friendships, class_name: 'User'
   has_one :room
+  has_many :messages
 
   validates :first_name, :last_name, presence: true
 
@@ -44,7 +45,7 @@ class User < ApplicationRecord
   private
 
   def create_chatroom
-    chatroom_name = self.full_name.split.join('-')
-    Room.create(name: chatroom_name, user_id: self.id)
+    chatroom_name = full_name.split.join('-')
+    Room.create(name: chatroom_name, user_id: id)
   end
 end
