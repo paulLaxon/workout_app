@@ -19,6 +19,12 @@ RSpec.feature 'Sign up user:' do
     expect(page).to have_content('You have signed up successfully')
     expect(page).to have_link('Sign out')
 
+    user = User.last
+    room = user.room
+    room_name = user.full_name.split.join('-')
+
+    expect(room.name).to eq(room_name)
+
     visit '/'
 
     expect(page).to_not have_content('John Doe')
